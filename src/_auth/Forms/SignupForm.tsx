@@ -46,7 +46,7 @@ function onSubmit(values: z.infer<typeof SignupValidation>) {
           Create a new account
         </h2>
         <p className="text-light-3 small-medium md:base-regular mt-2">
-          To use snapgram, Please enter your details
+          To use UniVibe, Please enter your details
         </p>
 
         <form
