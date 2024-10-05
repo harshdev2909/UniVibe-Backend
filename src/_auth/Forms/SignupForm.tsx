@@ -16,10 +16,11 @@ import { Input } from '@/components/ui/input'
 import { SignupValidation } from '@/lib/validations'
 import { z } from 'zod'
 import { Link } from 'react-router-dom'
-import { Loader } from 'lucide-react'
+import Loader from '@/components/shared/Loader'
 
 
 const SignupForm = () => {
+  const isLoading = false;
   
 const form = useForm<z.infer<typeof SignupValidation>>({
   resolver: zodResolver(SignupValidation),
@@ -108,15 +109,15 @@ function onSubmit(values: z.infer<typeof SignupValidation>) {
             )}
           />
 
-          {/* <Button type="submit" className="shad-button_primary">
-            {isCreatingAccount || isSigningInUser || isUserLoading ? (
-              <div className="flex-center gap-2">
-                <Loader /> Loading...
-              </div>
-            ) : (
-              "Sign Up"
-            )}
-          </Button> */}
+          <Button type="submit" className="shad-button_primary">
+              {
+                isLoading ? (
+                  <div className='flex-center gap-2'>
+                   <Loader /> loading...
+                  </div>
+                ): "Sign up"
+              }
+          </Button>
 
           <p className="text-small-regular text-light-2 text-center mt-2">
             Already have an account?
